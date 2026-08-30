@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <meta name="description" content="攒记（SavingNotes）隐私政策 / Privacy Policy">
+  <link rel="icon" type="image/png" href="app-icon.png">
+  <link rel="apple-touch-icon" href="app-icon.png">
   <title>攒记隐私政策 · SavingNotes Privacy Policy</title>
   <style>
     :root {
@@ -77,18 +79,27 @@
     }
 
     .mark {
-      display: grid;
-      place-items: center;
+      display: block;
       width: 42px;
       height: 42px;
       flex: 0 0 42px;
       border: 1px solid var(--line);
       border-radius: 12px;
-      color: var(--gold);
-      background: var(--surface);
-      box-shadow: var(--shadow);
-      font-size: 21px;
-      font-weight: 750;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(74, 59, 125, 0.16);
+    }
+
+    .mark img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .mark {
+        box-shadow: 0 8px 28px rgba(145, 119, 235, 0.2);
+      }
     }
 
     .brand strong,
@@ -211,7 +222,10 @@
   <div class="page">
     <header>
       <div class="brand" aria-label="攒记 SavingNotes">
-        <div class="mark" aria-hidden="true">¥</div>
+        <picture class="mark" aria-hidden="true">
+          <source srcset="app-icon-dark.png" media="(prefers-color-scheme: dark)">
+          <img src="app-icon.png" alt="">
+        </picture>
         <div>
           <strong>攒记 · SavingNotes</strong>
           <span>Private records, thoughtful goals</span>
