@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="攒记（SavingNotes）隐私政策 / Privacy Policy">
+  <title>攒记隐私政策 · SavingNotes Privacy Policy</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f7f6fb;
+      --surface: rgba(255, 255, 255, 0.78);
+      --text: #1d1b22;
+      --muted: #686571;
+      --line: rgba(71, 60, 94, 0.14);
+      --accent: #7565c8;
+      --accent-soft: rgba(117, 101, 200, 0.11);
+      --gold: #bd812f;
+      --shadow: 0 18px 55px rgba(58, 47, 92, 0.08);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111015;
+        --surface: rgba(31, 28, 39, 0.78);
+        --text: #f4f1f8;
+        --muted: #aaa5b4;
+        --line: rgba(208, 198, 231, 0.14);
+        --accent: #a896f2;
+        --accent-soft: rgba(168, 150, 242, 0.13);
+        --gold: #e0ad5e;
+        --shadow: 0 22px 70px rgba(0, 0, 0, 0.24);
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      background: var(--bg);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 18% -8%, var(--accent-soft), transparent 34rem),
+        var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC",
+        "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.72;
+      letter-spacing: 0;
+    }
+
+    a { color: var(--accent); text-underline-offset: 3px; }
+
+    .page {
+      width: min(880px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 36px 0 72px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 0 4px 28px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      flex: 0 0 42px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: var(--gold);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      font-size: 21px;
+      font-weight: 750;
+    }
+
+    .brand strong,
+    .brand span { display: block; }
+
+    .brand strong { font-size: 17px; }
+    .brand span { color: var(--muted); font-size: 12px; }
+
+    .language-switcher {
+      display: inline-grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 3px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface);
+    }
+
+    .language-switcher button {
+      min-width: 60px;
+      min-height: 34px;
+      padding: 6px 12px;
+      border: 0;
+      border-radius: 7px;
+      color: var(--muted);
+      background: transparent;
+      font: inherit;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .language-switcher button[aria-selected="true"] {
+      color: white;
+      background: var(--accent);
+      font-weight: 650;
+    }
+
+    main {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+    }
+
+    article { padding: clamp(28px, 6vw, 58px); }
+    article[hidden] { display: none; }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 7vw, 48px);
+      line-height: 1.14;
+      font-weight: 760;
+    }
+
+    .updated {
+      margin: 14px 0 30px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .summary {
+      margin: 0 0 34px;
+      padding: 18px 20px;
+      border-left: 3px solid var(--gold);
+      background: var(--accent-soft);
+    }
+
+    section {
+      padding: 25px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      line-height: 1.35;
+    }
+
+    p { margin: 8px 0; }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 1.25rem;
+    }
+
+    li + li { margin-top: 7px; }
+    strong { font-weight: 680; }
+
+    footer {
+      padding: 24px 4px 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    @media (max-width: 560px) {
+      .page { width: min(100% - 20px, 880px); padding-top: 18px; }
+      header { align-items: flex-start; padding-bottom: 18px; }
+      .brand span { display: none; }
+      .language-switcher button { min-width: 52px; padding-inline: 9px; }
+      main { border-radius: 7px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand" aria-label="攒记 SavingNotes">
+        <div class="mark" aria-hidden="true">¥</div>
+        <div>
+          <strong>攒记 · SavingNotes</strong>
+          <span>Private records, thoughtful goals</span>
+        </div>
+      </div>
+      <div class="language-switcher" role="tablist" aria-label="Language">
+        <button id="zh-button" type="button" role="tab" aria-selected="true">中文</button>
+        <button id="en-button" type="button" role="tab" aria-selected="false">EN</button>
+      </div>
+    </header>
+
+    <main>
+      <article id="zh-policy" lang="zh-Hans">
+        <p class="eyebrow">Privacy Policy</p>
+        <h1>隐私政策</h1>
+        <p class="updated">生效日期：2026 年 8 月 30 日</p>
+
+        <p class="summary">
+          攒记重视你的隐私。我们不运营用于保存账本数据的自建服务器，不出售个人数据，
+          不投放基于行为的广告，也不使用数据追踪 SDK。
+        </p>
+
+        <section>
+          <h2>1. 本政策适用范围</h2>
+          <p>
+            本政策适用于“攒记”（英文名称 SavingNotes）iOS 与 iPadOS App，说明 App
+            如何处理账单、攒钱目标、共享账本、快捷指令识别结果及相关设置。
+          </p>
+        </section>
+
+        <section>
+          <h2>2. App 处理的数据</h2>
+          <p>根据你使用的功能，App 可能处理以下由你主动输入或生成的数据：</p>
+          <ul>
+            <li>账单信息，例如金额、收入或支出类型、分类、商户或来源、日期及备注；</li>
+            <li>攒钱目标，例如目标名称、目标金额、当前已攒金额、计划天数和阶梯方案；</li>
+            <li>重复记录、提醒时间、币种、汇率和界面偏好等设置；</li>
+            <li>你主动发送给 App 的快捷指令 OCR 文本，以及由该文本识别出的账单信息；</li>
+            <li>共享账本名称、共享记录、共享目标及 CloudKit 提供的参与者显示信息。</li>
+          </ul>
+          <p>App 不要求你创建独立账号，也不会索取 Apple 账户密码。</p>
+        </section>
+
+        <section>
+          <h2>3. 本机与 iCloud 存储</h2>
+          <p>
+            数据首先由 App 保存在你的设备上。登录 iCloud 且服务可用时，账单、目标等数据
+            可通过 Apple CloudKit 保存至你的 iCloud 私有数据库，用于同一 iCloud 账户下的
+            设备同步。我们无法通过自建服务器读取你的私人 CloudKit 数据。
+          </p>
+          <p>
+            主题、语言、通知和部分偏好设置可能仅保存在当前设备，不一定随 iCloud 同步。
+            如果 iCloud 不可用，App 可能临时使用本地存储并向你显示提示。
+          </p>
+        </section>
+
+        <section>
+          <h2>4. 共享账本</h2>
+          <p>
+            共享账本使用 Apple CloudKit Sharing。只有当你主动创建或选择共享账本并发送邀请后，
+            接受邀请的参与者才能查看相应的共享记录和目标。具有写入权限的参与者可以添加或更新
+            共享内容，这些变化会同步给其他参与者。
+          </p>
+          <p>
+            请仅邀请你信任的人，并避免在商户、来源、目标名称或备注中填写不必要的敏感信息。
+            创建者可以停止共享，参与者可以退出共享。停止共享不会自动删除创建者保留的私人副本。
+          </p>
+        </section>
+
+        <section>
+          <h2>5. 快捷指令与文字识别</h2>
+          <p>
+            快捷记账可由 Apple“快捷指令”App 截图并提取文字，再把提取结果传给攒记。
+            攒记不会在后台自行查看你的屏幕。识别可能不完全准确；半自动模式会让你确认后保存，
+            全自动模式会直接保存识别结果。你应根据需要检查并修正记录。
+          </p>
+        </section>
+
+        <section>
+          <h2>6. 系统服务与第三方</h2>
+          <p>App 使用以下 Apple 系统服务来提供功能：</p>
+          <ul>
+            <li>iCloud 与 CloudKit：私人数据同步和受邀账本共享；</li>
+            <li>快捷指令与系统 OCR：由用户主动触发的文字提取和数据传递；</li>
+            <li>本地通知：在设备上提供用户设置的记账提醒；</li>
+            <li>系统分享面板：发送由用户选择的共享邀请。</li>
+          </ul>
+          <p>
+            这些服务由 Apple 提供，并同时受
+            <a href="https://www.apple.com/legal/privacy/" rel="noopener noreferrer">Apple 隐私政策</a>
+            约束。App 当前不包含第三方广告或行为分析 SDK。
+          </p>
+        </section>
+
+        <section>
+          <h2>7. 数据用途与披露</h2>
+          <p>
+            数据仅用于提供记账、统计、目标管理、设备同步和用户主动选择的共享功能。
+            我们不会出售或出租你的数据，不会将账本数据用于广告画像，也不会进行跨 App 追踪。
+            除你主动邀请的共享成员及 Apple 为提供系统服务所进行的处理外，我们不会主动向其他人披露账本数据。
+          </p>
+        </section>
+
+        <section>
+          <h2>8. 保留、删除与控制</h2>
+          <ul>
+            <li>你可以在 App 中删除单条账单、目标或账本；</li>
+            <li>你可以停止共享或退出受邀账本；</li>
+            <li>你可以在“设置 → 数据管理”中清空所有数据；</li>
+            <li>删除操作在 iCloud 可用时会同步至 CloudKit 和同一账户的其他设备；</li>
+            <li>仅卸载 App 不一定删除保存在 iCloud 中的数据。若需完整清除，请先使用 App 内清空功能，并可在系统 iCloud 存储设置中管理相关数据。</li>
+          </ul>
+          <p>攒记不创建独立用户账号，因此不存在由我们维护的账号记录或登录凭证。</p>
+        </section>
+
+        <section>
+          <h2>9. 数据安全</h2>
+          <p>
+            我们采用 Apple 提供的应用沙箱、CloudKit 权限和系统共享机制保护数据。
+            但任何存储或传输方式都无法保证绝对安全。请保护好设备、系统账户和共享邀请链接。
+          </p>
+        </section>
+
+        <section>
+          <h2>10. 儿童隐私</h2>
+          <p>
+            攒记不是专门面向 13 周岁以下儿童设计的服务，也不会主动要求儿童提供姓名、邮箱或其他联系信息。
+          </p>
+        </section>
+
+        <section>
+          <h2>11. 政策更新</h2>
+          <p>
+            功能或法律要求发生变化时，我们可能更新本政策。重大变化会通过 App 更新说明、
+            App 内提示或本页面进行说明，页面顶部的生效日期也会同步更新。
+          </p>
+        </section>
+
+        <section>
+          <h2>12. 联系我们</h2>
+          <p>
+            如对本政策、数据处理或删除方式有疑问，请发送邮件至
+            <a href="mailto:lalalieo@outlook.com">lalalieo@outlook.com</a>。
+          </p>
+        </section>
+      </article>
+
+      <article id="en-policy" lang="en" hidden>
+        <p class="eyebrow">Privacy Policy</p>
+        <h1>Privacy Policy</h1>
+        <p class="updated">Effective date: August 30, 2026</p>
+
+        <p class="summary">
+          SavingNotes respects your privacy. We do not operate a proprietary server that stores
+          your ledger data, sell personal data, serve behavior-based advertising, or use tracking SDKs.
+        </p>
+
+        <section>
+          <h2>1. Scope</h2>
+          <p>
+            This policy applies to the SavingNotes iOS and iPadOS app. It explains how the app
+            handles transactions, savings goals, shared ledgers, Shortcut recognition results,
+            and related preferences.
+          </p>
+        </section>
+
+        <section>
+          <h2>2. Data Processed by the App</h2>
+          <p>Depending on the features you use, the app may process data you enter or generate:</p>
+          <ul>
+            <li>Transaction details, including amount, income or expense type, category, merchant or source, date, and notes;</li>
+            <li>Savings goals, including goal name, target amount, saved amount, plan duration, and comparison tiers;</li>
+            <li>Recurring records and preferences such as reminders, currency, exchange rates, and appearance;</li>
+            <li>Shortcut OCR text you intentionally send to the app and transaction details recognized from that text;</li>
+            <li>Shared ledger names, shared records, shared goals, and participant display information provided by CloudKit.</li>
+          </ul>
+          <p>The app does not require a separate account and never asks for your Apple Account password.</p>
+        </section>
+
+        <section>
+          <h2>3. On-Device and iCloud Storage</h2>
+          <p>
+            Data is first stored by the app on your device. When you are signed in to iCloud and
+            the service is available, records and goals may be stored in your private iCloud database
+            through Apple CloudKit so they can sync across devices using the same iCloud account.
+            We cannot access your private CloudKit data through a proprietary server.
+          </p>
+          <p>
+            Appearance, language, notifications, and certain preferences may remain device-specific.
+            If iCloud is unavailable, the app may temporarily use local storage and display a notice.
+          </p>
+        </section>
+
+        <section>
+          <h2>4. Shared Ledgers</h2>
+          <p>
+            Shared ledgers use Apple CloudKit Sharing. Participants can view a shared ledger only
+            after you intentionally create or select it, send an invitation, and they accept it.
+            Participants with write access can add or update shared content, and those changes can
+            sync to the other participants.
+          </p>
+          <p>
+            Invite only people you trust and avoid entering unnecessary sensitive information in
+            merchant, source, goal name, or note fields. Owners can stop sharing and participants can
+            leave a share. Stopping a share does not automatically delete the owner's private copy.
+          </p>
+        </section>
+
+        <section>
+          <h2>5. Shortcuts and Text Recognition</h2>
+          <p>
+            Quick recording can use Apple's Shortcuts app to take a screenshot, extract text, and
+            send that extracted text to SavingNotes. SavingNotes does not independently view your
+            screen in the background. Recognition may be inaccurate. Semi-automatic mode asks you
+            to confirm before saving; fully automatic mode saves the recognized result directly.
+            Review and correct records when appropriate.
+          </p>
+        </section>
+
+        <section>
+          <h2>6. System Services and Third Parties</h2>
+          <p>The app uses these Apple system services:</p>
+          <ul>
+            <li>iCloud and CloudKit for private synchronization and invitation-only ledger sharing;</li>
+            <li>Shortcuts and system OCR for user-initiated text extraction and transfer;</li>
+            <li>Local notifications for reminders configured on the device;</li>
+            <li>The system share sheet for invitations selected by the user.</li>
+          </ul>
+          <p>
+            These services are provided by Apple and are also governed by
+            <a href="https://www.apple.com/legal/privacy/" rel="noopener noreferrer">Apple's Privacy Policy</a>.
+            The app currently contains no third-party advertising or behavioral analytics SDKs.
+          </p>
+        </section>
+
+        <section>
+          <h2>7. Use and Disclosure</h2>
+          <p>
+            Data is used only to provide record keeping, statistics, goal management, device sync,
+            and sharing you explicitly choose. We do not sell or rent your data, use ledger data for
+            advertising profiles, or track you across apps. Apart from participants you invite and
+            Apple's processing required to provide system services, we do not intentionally disclose
+            your ledger data to others.
+          </p>
+        </section>
+
+        <section>
+          <h2>8. Retention, Deletion, and Your Controls</h2>
+          <ul>
+            <li>You can delete individual transactions, goals, or ledgers in the app;</li>
+            <li>You can stop sharing or leave an invited ledger;</li>
+            <li>You can erase all data under Settings → Data Management;</li>
+            <li>When iCloud is available, deletions sync to CloudKit and your other devices using the same account;</li>
+            <li>Uninstalling the app alone may not delete data stored in iCloud. To remove it, use the in-app erase option first and manage related data in iCloud storage settings when necessary.</li>
+          </ul>
+          <p>SavingNotes creates no independent user account, so we retain no proprietary account record or login credentials.</p>
+        </section>
+
+        <section>
+          <h2>9. Security</h2>
+          <p>
+            We rely on Apple's app sandbox, CloudKit permissions, and system sharing mechanisms.
+            No method of storage or transmission is completely secure. Protect your device, system
+            account, and invitation links.
+          </p>
+        </section>
+
+        <section>
+          <h2>10. Children's Privacy</h2>
+          <p>
+            SavingNotes is not specifically directed to children under 13 and does not intentionally
+            ask children to provide names, email addresses, or other contact information.
+          </p>
+        </section>
+
+        <section>
+          <h2>11. Policy Updates</h2>
+          <p>
+            We may update this policy when features or legal requirements change. Material changes
+            may be communicated through release notes, an in-app notice, or this page. The effective
+            date above will be updated accordingly.
+          </p>
+        </section>
+
+        <section>
+          <h2>12. Contact</h2>
+          <p>
+            For questions about this policy, data handling, or deletion, email
+            <a href="mailto:lalalieo@outlook.com">lalalieo@outlook.com</a>.
+          </p>
+        </section>
+      </article>
+    </main>
+
+    <footer>© 2026 SavingNotes · 攒记</footer>
+  </div>
+
+  <script>
+    const zhButton = document.getElementById('zh-button');
+    const enButton = document.getElementById('en-button');
+    const zhPolicy = document.getElementById('zh-policy');
+    const enPolicy = document.getElementById('en-policy');
+
+    function showLanguage(language) {
+      const isChinese = language === 'zh';
+      zhPolicy.hidden = !isChinese;
+      enPolicy.hidden = isChinese;
+      zhButton.setAttribute('aria-selected', String(isChinese));
+      enButton.setAttribute('aria-selected', String(!isChinese));
+      document.documentElement.lang = isChinese ? 'zh-Hans' : 'en';
+      document.title = isChinese
+        ? '攒记隐私政策 · SavingNotes Privacy Policy'
+        : 'SavingNotes Privacy Policy · 攒记';
+      history.replaceState(null, '', isChinese ? '#zh' : '#en');
+    }
+
+    zhButton.addEventListener('click', () => showLanguage('zh'));
+    enButton.addEventListener('click', () => showLanguage('en'));
+
+    const requestedLanguage = location.hash === '#en'
+      ? 'en'
+      : (location.hash === '#zh' ? 'zh' : (navigator.language.startsWith('zh') ? 'zh' : 'en'));
+    showLanguage(requestedLanguage);
+  </script>
+</body>
+</html>
