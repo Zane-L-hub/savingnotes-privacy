@@ -8,6 +8,7 @@ https://zane-l-hub.github.io/savingnotes-privacy/
 
 - Chinese: https://zane-l-hub.github.io/savingnotes-privacy/#zh
 - English: https://zane-l-hub.github.io/savingnotes-privacy/#en
+- Support: https://zane-l-hub.github.io/savingnotes-privacy/support.html
 
 The site is a static bilingual page. It uses no cookies, analytics, advertising,
 external fonts, or third-party scripts.

@@ -136,6 +136,24 @@
       font-weight: 650;
     }
 
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .support-link {
+      min-height: 42px;
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: var(--accent);
+      background: var(--surface);
+      font-size: 13px;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
     main {
       overflow: hidden;
       border: 1px solid var(--line);
@@ -209,6 +227,8 @@
       .page { width: min(100% - 20px, 880px); padding-top: 18px; }
       header { align-items: flex-start; padding-bottom: 18px; }
       .brand span { display: none; }
+      .header-actions { align-items: flex-end; flex-direction: column-reverse; gap: 7px; }
+      .support-link { min-height: 34px; padding: 6px 10px; }
       .language-switcher button { min-width: 52px; padding-inline: 9px; }
       main { border-radius: 7px; }
     }
@@ -231,9 +251,12 @@
           <span>Private records, thoughtful goals</span>
         </div>
       </div>
-      <div class="language-switcher" role="tablist" aria-label="Language">
-        <button id="zh-button" type="button" role="tab" aria-selected="true">中文</button>
-        <button id="en-button" type="button" role="tab" aria-selected="false">EN</button>
+      <div class="header-actions">
+        <a class="support-link" href="support.html">支持与帮助 · Support</a>
+        <div class="language-switcher" role="tablist" aria-label="Language">
+          <button id="zh-button" type="button" role="tab" aria-selected="true">中文</button>
+          <button id="en-button" type="button" role="tab" aria-selected="false">EN</button>
+        </div>
       </div>
     </header>
 

@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="攒记（SavingNotes）技术支持与使用帮助 / Support and Help">
+  <link rel="icon" type="image/png" href="app-icon.png">
+  <link rel="apple-touch-icon" href="app-icon.png">
+  <title>攒记支持与帮助 · SavingNotes Support</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f7f6fb;
+      --surface: rgba(255, 255, 255, 0.8);
+      --text: #1d1b22;
+      --muted: #686571;
+      --line: rgba(71, 60, 94, 0.14);
+      --accent: #7565c8;
+      --accent-soft: rgba(117, 101, 200, 0.11);
+      --gold: #bd812f;
+      --shadow: 0 18px 55px rgba(58, 47, 92, 0.08);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111015;
+        --surface: rgba(31, 28, 39, 0.8);
+        --text: #f4f1f8;
+        --muted: #aaa5b4;
+        --line: rgba(208, 198, 231, 0.14);
+        --accent: #a896f2;
+        --accent-soft: rgba(168, 150, 242, 0.13);
+        --gold: #e0ad5e;
+        --shadow: 0 22px 70px rgba(0, 0, 0, 0.24);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { background: var(--bg); scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 18% -8%, var(--accent-soft), transparent 34rem),
+        var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC",
+        "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.68;
+      letter-spacing: 0;
+    }
+
+    a { color: var(--accent); text-underline-offset: 3px; }
+
+    .page {
+      width: min(880px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 36px 0 72px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 0 4px 28px;
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .brand strong, .brand span { display: block; }
+    .brand strong { font-size: 17px; }
+    .brand span { color: var(--muted); font-size: 12px; }
+
+    .mark {
+      display: block;
+      width: 42px;
+      height: 42px;
+      flex: 0 0 42px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(74, 59, 125, 0.16);
+    }
+
+    .mark img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+
+    .privacy-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 42px;
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: var(--accent);
+      background: var(--surface);
+      font-size: 13px;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .privacy-link::after {
+      content: "↗";
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .language-switcher {
+      display: inline-grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 3px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface);
+    }
+
+    .language-switcher button {
+      min-width: 60px;
+      min-height: 34px;
+      padding: 6px 12px;
+      border: 0;
+      border-radius: 7px;
+      color: var(--muted);
+      background: transparent;
+      font: inherit;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .language-switcher button[aria-selected="true"] {
+      color: white;
+      background: var(--accent);
+      font-weight: 650;
+    }
+
+    main {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+    }
+
+    article { padding: clamp(28px, 6vw, 58px); }
+    article[hidden] { display: none; }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(32px, 7vw, 50px);
+      line-height: 1.12;
+      font-weight: 760;
+    }
+
+    .intro { margin: 14px 0 26px; color: var(--muted); font-size: 16px; }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin: 0 0 34px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--accent-soft);
+    }
+
+    .contact-card strong, .contact-card span { display: block; }
+    .contact-card span { margin-top: 3px; color: var(--muted); font-size: 13px; }
+
+    .contact-guide {
+      flex: 0 0 auto;
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: right;
+    }
+
+    .contact-guide a {
+      display: block;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    section { padding: 25px 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 10px; font-size: 20px; line-height: 1.35; }
+    p { margin: 8px 0; }
+
+    ol, ul { margin: 10px 0 0; padding-left: 1.25rem; }
+    li + li { margin-top: 7px; }
+    .note { color: var(--muted); font-size: 13px; }
+
+    footer {
+      padding: 24px 4px 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    @media (max-width: 620px) {
+      .page { width: min(100% - 20px, 880px); padding-top: 18px; }
+      header { align-items: flex-start; padding-bottom: 18px; }
+      .brand span { display: none; }
+      .header-actions { align-items: flex-end; flex-direction: column-reverse; gap: 7px; }
+      .privacy-link { min-height: 34px; padding: 6px 10px; }
+      .language-switcher button { min-width: 52px; padding-inline: 9px; }
+      .contact-card { align-items: stretch; flex-direction: column; }
+      .contact-guide { text-align: left; }
+      main { border-radius: 7px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand" aria-label="攒记 SavingNotes">
+        <picture class="mark" aria-hidden="true">
+          <source srcset="app-icon-dark.png" media="(prefers-color-scheme: dark)">
+          <img src="app-icon.png" alt="">
+        </picture>
+        <div>
+          <strong>攒记 · SavingNotes</strong>
+          <span>Private records, thoughtful goals</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a class="privacy-link" href="index.html">隐私政策 · Privacy</a>
+        <div class="language-switcher" role="tablist" aria-label="Language">
+          <button id="zh-button" type="button" role="tab" aria-selected="true">中文</button>
+          <button id="en-button" type="button" role="tab" aria-selected="false">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <article id="zh-support" lang="zh-Hans">
+        <p class="eyebrow">Support &amp; Help</p>
+        <h1>支持与帮助</h1>
+        <p class="intro">遇到同步、共享或快捷记账问题时，可以先查看下面的处理方法，或直接联系我们。</p>
+
+        <div class="contact-card">
+          <div>
+            <strong>联系攒记支持</strong>
+            <span>反馈时请附上 App 版本、设备型号和问题现象，请勿发送真实账单等敏感内容。</span>
+          </div>
+          <p class="contact-guide">
+            请发送邮件至
+            <a href="mailto:lalalieo@outlook.com?subject=%E6%94%92%E8%AE%B0%20App%20%E6%94%AF%E6%8C%81">lalalieo@outlook.com</a>
+          </p>
+        </div>
+
+        <section>
+          <h2>iCloud 数据没有同步</h2>
+          <ol>
+            <li>确认设备登录的是同一个 Apple 账户，并已开启 iCloud Drive；</li>
+            <li>在系统“设置 → Apple 账户 → iCloud”中确认攒记可以使用 iCloud；</li>
+            <li>保持网络连接，在记账本或攒目标页面下拉刷新；</li>
+            <li>首次同步或数据较多时，请稍等片刻后重新打开 App。</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>共享账本没有更新</h2>
+          <ol>
+            <li>确认双方都已更新到最新版攒记，并正常登录 iCloud；</li>
+            <li>在“共享”页面确认邀请已经接受、账本仍处于共享状态；</li>
+            <li>在共享页或对应的记账本、攒目标页面下拉刷新；</li>
+            <li>只有账本创建者可以邀请新成员或停止共享。</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>设置快捷记支出</h2>
+          <ol>
+            <li>在攒记“设置 → 自动化”中安装半自动或全自动快捷指令；</li>
+            <li>打开系统“设置 → 辅助功能 → 触控 → 轻点背面”；</li>
+            <li>为“轻点两下”选择刚安装的攒记快捷指令；</li>
+            <li>在付款成功页或账单详情页轻点手机背面两下。</li>
+          </ol>
+          <p class="note">半自动模式会在保存前让你确认，识别结果更容易检查；全自动模式会直接保存，请定期核对金额和分类。</p>
+        </section>
+
+        <section>
+          <h2>文字识别金额不准确</h2>
+          <p>
+            页面同时出现优惠券、红包或商品价格时，系统 OCR 可能提取多个金额。建议在付款成功页或账单详情页触发快捷指令，
+            并优先使用半自动模式确认最终付款金额。攒记不会在后台自行查看屏幕。
+          </p>
+        </section>
+
+        <section>
+          <h2>导出或删除数据</h2>
+          <p>
+            在“设置 → 数据管理”中可以导出 CSV 或 JSON，也可以清空本机和可同步的数据。
+            删除前请先完成需要的导出。仅卸载 App 不一定会删除保存在 iCloud 中的数据。
+          </p>
+        </section>
+
+        <section>
+          <h2>隐私与联系</h2>
+          <p>
+            查看<a href="index.html#zh">《攒记隐私政策》</a>，或发送邮件至
+            <a href="mailto:lalalieo@outlook.com">lalalieo@outlook.com</a>。
+          </p>
+        </section>
+      </article>
+
+      <article id="en-support" lang="en" hidden>
+        <p class="eyebrow">Support &amp; Help</p>
+        <h1>Support and Help</h1>
+        <p class="intro">Find help for sync, sharing, and Quick Recording, or contact us directly.</p>
+
+        <div class="contact-card">
+          <div>
+            <strong>Contact SavingNotes Support</strong>
+            <span>Include the app version, device model, and what happened. Do not send real transaction details or other sensitive information.</span>
+          </div>
+          <p class="contact-guide">
+            Email us at
+            <a href="mailto:lalalieo@outlook.com?subject=SavingNotes%20App%20Support">lalalieo@outlook.com</a>
+          </p>
+        </div>
+
+        <section>
+          <h2>iCloud data is not syncing</h2>
+          <ol>
+            <li>Make sure the devices use the same Apple Account and iCloud Drive is enabled;</li>
+            <li>In Settings → Apple Account → iCloud, confirm that SavingNotes can use iCloud;</li>
+            <li>Stay connected to the internet and pull to refresh on the Ledger or Goals tab;</li>
+            <li>For a first sync or a larger data set, wait briefly and reopen the app.</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>A shared ledger is not updating</h2>
+          <ol>
+            <li>Make sure everyone is using the latest SavingNotes version and is signed in to iCloud;</li>
+            <li>On the Shared tab, confirm that the invitation was accepted and sharing is still active;</li>
+            <li>Pull to refresh on the Shared tab or the related Ledger and Goals tabs;</li>
+            <li>Only the ledger owner can invite additional members or stop sharing.</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>Set up Quick Recording</h2>
+          <ol>
+            <li>In SavingNotes, open Settings → Automation and install the semi-automatic or fully automatic Shortcut;</li>
+            <li>Open iOS Settings → Accessibility → Touch → Back Tap;</li>
+            <li>Assign the installed SavingNotes Shortcut to Double Tap;</li>
+            <li>Double-tap the back of the phone on a payment confirmation or transaction details page.</li>
+          </ol>
+          <p class="note">Semi-automatic mode lets you review a record before saving. Fully automatic mode saves immediately, so review amounts and categories regularly.</p>
+        </section>
+
+        <section>
+          <h2>The recognized amount is inaccurate</h2>
+          <p>
+            Pages containing coupons, rewards, or product prices may produce several OCR amounts. Run the Shortcut on a payment confirmation
+            or transaction details page and use semi-automatic mode when you want to verify the final paid amount. SavingNotes does not independently view your screen in the background.
+          </p>
+        </section>
+
+        <section>
+          <h2>Export or erase data</h2>
+          <p>
+            Open Settings → Data Management to export CSV or JSON files or erase local and syncable data.
+            Export anything you need first. Uninstalling the app alone may not remove data stored in iCloud.
+          </p>
+        </section>
+
+        <section>
+          <h2>Privacy and contact</h2>
+          <p>
+            Read the <a href="index.html#en">SavingNotes Privacy Policy</a> or email
+            <a href="mailto:lalalieo@outlook.com">lalalieo@outlook.com</a>.
+          </p>
+        </section>
+      </article>
+    </main>
+
+    <footer>© 2026 SavingNotes · 攒记</footer>
+  </div>
+
+  <script>
+    const zhButton = document.getElementById('zh-button');
+    const enButton = document.getElementById('en-button');
+    const zhSupport = document.getElementById('zh-support');
+    const enSupport = document.getElementById('en-support');
+
+    function showLanguage(language) {
+      const isChinese = language === 'zh';
+      zhSupport.hidden = !isChinese;
+      enSupport.hidden = isChinese;
+      zhButton.setAttribute('aria-selected', String(isChinese));
+      enButton.setAttribute('aria-selected', String(!isChinese));
+      document.documentElement.lang = isChinese ? 'zh-Hans' : 'en';
+      document.title = isChinese
+        ? '攒记支持与帮助 · SavingNotes Support'
+        : 'SavingNotes Support and Help · 攒记';
+      history.replaceState(null, '', isChinese ? '#zh' : '#en');
+    }
+
+    zhButton.addEventListener('click', () => showLanguage('zh'));
+    enButton.addEventListener('click', () => showLanguage('en'));
+
+    const requestedLanguage = location.hash === '#en'
+      ? 'en'
+      : (location.hash === '#zh' ? 'zh' : (navigator.language.startsWith('zh') ? 'zh' : 'en'));
+    showLanguage(requestedLanguage);
+  </script>
+</body>
+</html>
