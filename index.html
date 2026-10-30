@@ -264,7 +264,7 @@
       <article id="zh-policy" lang="zh-Hans">
         <p class="eyebrow">Privacy Policy</p>
         <h1>隐私政策</h1>
-        <p class="updated">生效日期：2026 年 8 月 30 日</p>
+        <p class="updated">生效日期：2026 年 10 月 30 日 · 适用于 1.1 版本新增功能</p>
 
         <p class="summary">
           攒记重视你的隐私。我们不运营用于保存账本数据的自建服务器，不出售个人数据，
@@ -274,8 +274,9 @@
         <section>
           <h2>1. 本政策适用范围</h2>
           <p>
-            本政策适用于“攒记”（英文名称 SavingNotes）iOS 与 iPadOS App，说明 App
-            如何处理账单、攒钱目标、共享账本、快捷指令识别结果及相关设置。
+            本政策适用于“攒记”（英文名称 SavingNotes）App 及其小组件，说明 App
+            如何处理账单、攒钱目标、共享账本、快捷指令识别结果、消费复盘、周报与月报、
+            隐私锁及相关设置。
           </p>
         </section>
 
@@ -287,7 +288,9 @@
             <li>攒钱目标，例如目标名称、目标金额、当前已攒金额、计划天数和阶梯方案；</li>
             <li>重复记录、提醒时间、币种、汇率和界面偏好等设置；</li>
             <li>你主动发送给 App 的快捷指令 OCR 文本，以及由该文本识别出的账单信息；</li>
-            <li>共享账本名称、共享记录、共享目标及 CloudKit 提供的参与者显示信息。</li>
+            <li>共享账本名称、共享记录、共享目标及 CloudKit 提供的参与者显示信息；</li>
+            <li>你主动填写的消费复盘评价、复盘备注及更新时间；</li>
+            <li>用于小组件展示的本月个人收支摘要、攒钱目标名称与进度、币种和语言等偏好。</li>
           </ul>
           <p>App 不要求你创建独立账号，也不会索取 Apple 账户密码。</p>
         </section>
@@ -328,12 +331,60 @@
         </section>
 
         <section>
-          <h2>6. 系统服务与第三方</h2>
+          <h2>6. 消费复盘与报告</h2>
+          <p>
+            消费复盘是可选功能，你可以为支出选择评价并填写备注。1.1 版本的复盘信息
+            单独保存在当前设备，不会通过 App 的 iCloud 同步或共享账本发送给其他设备、
+            共享成员或开发者，也不包含在当前 CSV 或 JSON 导出文件中。
+            更换设备、卸载 App 或清空数据可能使这些本机复盘信息丢失。
+          </p>
+          <p>
+            周报、月报和消费洞察根据设备上已有的账单与复盘信息在本机计算。
+            报告仅用于帮助你回顾消费，不会将这些数据发送至外部 AI 或分析服务，
+            也不会用于广告画像或模型训练。
+          </p>
+        </section>
+
+        <section>
+          <h2>7. 桌面小组件</h2>
+          <p>
+            小组件通过 Apple WidgetKit 提供快捷记支出、攒钱和结余展示。
+            为显示这些内容，App 会将必要的展示摘要保存在本机受系统权限保护的共享容器中，
+            供本 App 的小组件读取；这不是上传到网络服务器，也不会将数据提供给其他开发者的 App。
+            摘要可能包含本月个人收入、支出和结余，以及可选目标的名称、已攒金额、目标金额与币种，
+            不包含完整账单列表、商户、账单备注或复盘备注。
+          </p>
+          <p>
+            未启用隐私锁时，能查看你主屏幕或其他小组件展示位置的人，也可能看到小组件上的信息。
+            启用隐私锁后，App 会生成不含收支金额和目标信息的摘要，并请求系统刷新小组件。
+            刷新由系统调度，旧画面可能短暂保留；如需立即停止展示，请移除小组件。
+            点击小组件会打开 App 的相应页面，隐私锁启用时仍需先完成系统验证才能查看内容。
+          </p>
+        </section>
+
+        <section>
+          <h2>8. 隐私锁与系统身份验证</h2>
+          <p>
+            隐私锁为可选功能。启用后，App 使用 Apple LocalAuthentication，
+            由系统通过 Face ID、Touch ID 或设备现有锁屏密码验证身份，具体方式取决于设备与系统设置。
+            攒记只接收验证结果，不会获取、保存或上传你的面容、指纹、生物识别模板或锁屏密码，
+            也不会要求你创建单独的 App 密码。是否启用隐私锁的偏好保存在本机。
+          </p>
+          <p>
+            隐私锁用于限制 App 界面访问，并遮挡多任务预览，不会阻止已启用的后台快捷记账或 iCloud 同步，
+            也不等同于为数据文件、导出文件或云端副本另设密码加密。请同时保护设备和导出文件。
+          </p>
+        </section>
+
+        <section>
+          <h2>9. 系统服务与第三方</h2>
           <p>App 使用以下 Apple 系统服务来提供功能：</p>
           <ul>
             <li>iCloud 与 CloudKit：私人数据同步和受邀账本共享；</li>
             <li>快捷指令与系统 OCR：由用户主动触发的文字提取和数据传递；</li>
             <li>本地通知：在设备上提供用户设置的记账提醒；</li>
+            <li>WidgetKit 与 App 共享容器：在本机向小组件提供必要的展示摘要；</li>
+            <li>LocalAuthentication：由系统验证 Face ID、Touch ID 或设备锁屏密码；</li>
             <li>系统分享面板：发送由用户选择的共享邀请。</li>
           </ul>
           <p>
@@ -344,20 +395,22 @@
         </section>
 
         <section>
-          <h2>7. 数据用途与披露</h2>
+          <h2>10. 数据用途与披露</h2>
           <p>
-            数据仅用于提供记账、统计、目标管理、设备同步和用户主动选择的共享功能。
+            数据仅用于提供记账、统计、目标管理、消费复盘与报告、小组件、隐私保护、设备同步和用户主动选择的共享功能。
             我们不会出售或出租你的数据，不会将账本数据用于广告画像，也不会进行跨 App 追踪。
             除你主动邀请的共享成员及 Apple 为提供系统服务所进行的处理外，我们不会主动向其他人披露账本数据。
           </p>
         </section>
 
         <section>
-          <h2>8. 保留、删除与控制</h2>
+          <h2>11. 保留、删除与控制</h2>
           <ul>
             <li>你可以在 App 中删除单条账单、目标或账本；</li>
             <li>你可以停止共享或退出受邀账本；</li>
             <li>你可以在“设置 → 数据管理”中清空所有数据；</li>
+            <li>清空数据时，App 会删除本机复盘信息，并请求更新小组件以移除旧数据；小组件画面的刷新时间由系统决定；</li>
+            <li>你可以随时移除小组件；移除小组件不会删除 App 内的原始账单和目标；</li>
             <li>删除操作在 iCloud 可用时会同步至 CloudKit 和同一账户的其他设备；</li>
             <li>仅卸载 App 不一定删除保存在 iCloud 中的数据。若需完整清除，请先使用 App 内清空功能，并可在系统 iCloud 存储设置中管理相关数据。</li>
           </ul>
@@ -365,7 +418,7 @@
         </section>
 
         <section>
-          <h2>9. 数据安全</h2>
+          <h2>12. 数据安全</h2>
           <p>
             我们采用 Apple 提供的应用沙箱、CloudKit 权限和系统共享机制保护数据。
             但任何存储或传输方式都无法保证绝对安全。请保护好设备、系统账户和共享邀请链接。
@@ -373,14 +426,14 @@
         </section>
 
         <section>
-          <h2>10. 儿童隐私</h2>
+          <h2>13. 儿童隐私</h2>
           <p>
             攒记不是专门面向 13 周岁以下儿童设计的服务，也不会主动要求儿童提供姓名、邮箱或其他联系信息。
           </p>
         </section>
 
         <section>
-          <h2>11. 政策更新</h2>
+          <h2>14. 政策更新</h2>
           <p>
             功能或法律要求发生变化时，我们可能更新本政策。重大变化会通过 App 更新说明、
             App 内提示或本页面进行说明，页面顶部的生效日期也会同步更新。
@@ -388,7 +441,7 @@
         </section>
 
         <section>
-          <h2>12. 联系我们</h2>
+          <h2>15. 联系我们</h2>
           <p>
             如对本政策、数据处理或删除方式有疑问，请发送邮件至
             <a href="mailto:lalalieo@outlook.com">lalalieo@outlook.com</a>。
@@ -399,7 +452,7 @@
       <article id="en-policy" lang="en" hidden>
         <p class="eyebrow">Privacy Policy</p>
         <h1>Privacy Policy</h1>
-        <p class="updated">Effective date: August 30, 2026</p>
+        <p class="updated">Effective date: October 30, 2026 · Includes features introduced in version 1.1</p>
 
         <p class="summary">
           SavingNotes respects your privacy. We do not operate a proprietary server that stores
@@ -409,9 +462,9 @@
         <section>
           <h2>1. Scope</h2>
           <p>
-            This policy applies to the SavingNotes iOS and iPadOS app. It explains how the app
+            This policy applies to the SavingNotes app and its widgets. It explains how the app
             handles transactions, savings goals, shared ledgers, Shortcut recognition results,
-            and related preferences.
+            spending reviews, weekly and monthly reports, App Lock, and related preferences.
           </p>
         </section>
 
@@ -423,7 +476,9 @@
             <li>Savings goals, including goal name, target amount, saved amount, plan duration, and comparison tiers;</li>
             <li>Recurring records and preferences such as reminders, currency, exchange rates, and appearance;</li>
             <li>Shortcut OCR text you intentionally send to the app and transaction details recognized from that text;</li>
-            <li>Shared ledger names, shared records, shared goals, and participant display information provided by CloudKit.</li>
+            <li>Shared ledger names, shared records, shared goals, and participant display information provided by CloudKit;</li>
+            <li>Spending ratings, review notes, and update times you choose to save;</li>
+            <li>Monthly personal income and expense summaries, savings goal names and progress, currency, and language preferences used for widget display.</li>
           </ul>
           <p>The app does not require a separate account and never asks for your Apple Account password.</p>
         </section>
@@ -469,12 +524,72 @@
         </section>
 
         <section>
-          <h2>6. System Services and Third Parties</h2>
+          <h2>6. Spending Reviews and Reports</h2>
+          <p>
+            Spending reviews are optional. You can rate an expense and add a review note.
+            In version 1.1, review information is stored separately on the current device.
+            It is not sent to other devices, shared-ledger participants, or the developer through
+            the app's iCloud sync or ledger-sharing features, and it is not included in current
+            CSV or JSON exports. Changing devices, uninstalling the app, or erasing data may
+            result in the loss of these local reviews.
+          </p>
+          <p>
+            Weekly and monthly reports and spending insights are calculated on your device from
+            the transactions and reviews available there. These reports help you reflect on
+            spending. Their data is not sent to external AI or analytics services or used for
+            advertising profiles or model training.
+          </p>
+        </section>
+
+        <section>
+          <h2>7. Home Screen Widgets</h2>
+          <p>
+            Widgets use Apple WidgetKit to provide expense-entry and saving shortcuts and balance
+            information. The app stores the summaries needed for display in an on-device shared
+            container protected by system permissions, so its own widget extension can read them.
+            This does not upload the summaries to a network server or provide them to other
+            developers' apps. Summaries may include monthly personal income, expenses and balance,
+            and eligible goals' names, saved amounts, target amounts, and currencies. They do not
+            include the full transaction list, merchants, transaction notes, or review notes.
+          </p>
+          <p>
+            When App Lock is off, people who can see your Home Screen or another location where
+            you display widgets may also see their information. When you enable App Lock, the app
+            generates a summary without financial amounts or goal information and requests a
+            widget refresh. The system schedules refreshes, so the previous display may remain
+            briefly. Remove the widget if you need to stop displaying it immediately. Tapping a
+            widget opens the relevant app screen; when App Lock is enabled, system authentication
+            is still required before you can view app content.
+          </p>
+        </section>
+
+        <section>
+          <h2>8. App Lock and System Authentication</h2>
+          <p>
+            App Lock is optional. When enabled, it uses Apple LocalAuthentication to let the system
+            verify your identity with Face ID, Touch ID, or your device's existing passcode,
+            depending on the device and its settings. SavingNotes receives only the authentication
+            result. It does not access, store, or upload your face data, fingerprints, biometric
+            templates, or device passcode, or ask you to create a separate app password.
+            The preference for enabling App Lock is stored on the device.
+          </p>
+          <p>
+            App Lock restricts access to the app interface and covers the app-switcher preview.
+            It does not stop enabled background Shortcut recording or iCloud sync, and it does not
+            add separate password encryption to data files, exports, or cloud copies. Protect your
+            device and exported files as well.
+          </p>
+        </section>
+
+        <section>
+          <h2>9. System Services and Third Parties</h2>
           <p>The app uses these Apple system services:</p>
           <ul>
             <li>iCloud and CloudKit for private synchronization and invitation-only ledger sharing;</li>
             <li>Shortcuts and system OCR for user-initiated text extraction and transfer;</li>
             <li>Local notifications for reminders configured on the device;</li>
+            <li>WidgetKit and an app shared container for on-device widget display summaries;</li>
+            <li>LocalAuthentication for system verification with Face ID, Touch ID, or the device passcode;</li>
             <li>The system share sheet for invitations selected by the user.</li>
           </ul>
           <p>
@@ -485,10 +600,11 @@
         </section>
 
         <section>
-          <h2>7. Use and Disclosure</h2>
+          <h2>10. Use and Disclosure</h2>
           <p>
-            Data is used only to provide record keeping, statistics, goal management, device sync,
-            and sharing you explicitly choose. We do not sell or rent your data, use ledger data for
+            Data is used only to provide record keeping, statistics, goal management, spending
+            reviews and reports, widgets, privacy protection, device sync, and sharing you
+            explicitly choose. We do not sell or rent your data, use ledger data for
             advertising profiles, or track you across apps. Apart from participants you invite and
             Apple's processing required to provide system services, we do not intentionally disclose
             your ledger data to others.
@@ -496,11 +612,13 @@
         </section>
 
         <section>
-          <h2>8. Retention, Deletion, and Your Controls</h2>
+          <h2>11. Retention, Deletion, and Your Controls</h2>
           <ul>
             <li>You can delete individual transactions, goals, or ledgers in the app;</li>
             <li>You can stop sharing or leave an invited ledger;</li>
             <li>You can erase all data under Settings → Data Management;</li>
+            <li>Erasing data deletes local reviews and requests a widget update to remove old data; the system determines when the widget display refreshes;</li>
+            <li>You can remove widgets at any time; removing a widget does not delete the original transactions or goals in the app;</li>
             <li>When iCloud is available, deletions sync to CloudKit and your other devices using the same account;</li>
             <li>Uninstalling the app alone may not delete data stored in iCloud. To remove it, use the in-app erase option first and manage related data in iCloud storage settings when necessary.</li>
           </ul>
@@ -508,7 +626,7 @@
         </section>
 
         <section>
-          <h2>9. Security</h2>
+          <h2>12. Security</h2>
           <p>
             We rely on Apple's app sandbox, CloudKit permissions, and system sharing mechanisms.
             No method of storage or transmission is completely secure. Protect your device, system
@@ -517,7 +635,7 @@
         </section>
 
         <section>
-          <h2>10. Children's Privacy</h2>
+          <h2>13. Children's Privacy</h2>
           <p>
             SavingNotes is not specifically directed to children under 13 and does not intentionally
             ask children to provide names, email addresses, or other contact information.
@@ -525,7 +643,7 @@
         </section>
 
         <section>
-          <h2>11. Policy Updates</h2>
+          <h2>14. Policy Updates</h2>
           <p>
             We may update this policy when features or legal requirements change. Material changes
             may be communicated through release notes, an in-app notice, or this page. The effective
@@ -534,7 +652,7 @@
         </section>
 
         <section>
-          <h2>12. Contact</h2>
+          <h2>15. Contact</h2>
           <p>
             For questions about this policy, data handling, or deletion, email
             <a href="mailto:lalalieo@outlook.com">lalalieo@outlook.com</a>.
